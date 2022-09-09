@@ -11,8 +11,12 @@ class MainActivity : AppCompatActivity() {
         // Это мой первый комит
         lifecycleScope.launch {
             viewModel.addNoteState.collect { list ->
-                adapter.setList(list)
-                binding.rv.adapter = adapter
+                if (list.isNotBlank()){
+                    adapter.setList(list)
+                    binding.rv.adapter = adapter
+                } else {
+                    showToast("List is empty")
+                }
             }
         }
     }
