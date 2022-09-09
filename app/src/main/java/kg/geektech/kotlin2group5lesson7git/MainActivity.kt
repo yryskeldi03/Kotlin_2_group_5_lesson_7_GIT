@@ -9,5 +9,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Это мой первый комит
+        lifecycleScope.launch {
+            viewModel.addNoteState.collect { list ->
+
+            }
+        }
     }
 }
